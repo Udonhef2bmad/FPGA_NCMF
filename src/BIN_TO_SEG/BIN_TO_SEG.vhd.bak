@@ -1,0 +1,62 @@
+library ieee;
+use ieee.std_logic_1164.all;
+ 
+entity BIN_TO_SEG is
+  port (
+    i_Clk        : in  std_logic;
+    i_Binary_Num : in  std_logic_vector(3 downto 0);
+    o_Segment    : out std_logic_vector(6 downto 0)
+    );
+end entity BIN_TO_SEG;
+ 
+architecture RTL of BIN_TO_SEG is
+ 
+  signal r_Hex_Encoding : std_logic_vector(6 downto 0) := (others => '0');
+   
+begin
+ 
+  -- Purpose: Creates a case statement for all possible input binary numbers.
+  -- Drives r_Hex_Encoding appropriately for each input combination.
+  process (i_Clk) is
+  begin
+    if rising_edge(i_Clk) then
+      case i_Binary_Num is
+        when "0000" =>
+          r_Hex_Encoding <= "0000001";
+        when "0001" =>
+          r_Hex_Encoding <= "1001111";
+        when "0010" =>
+          r_Hex_Encoding <= "0010010";
+        when "0011" =>
+          r_Hex_Encoding <= "0000110";
+        when "0100" =>
+          r_Hex_Encoding <= "1001100";          
+        when "0101" =>
+          r_Hex_Encoding <= "0100100";
+        when "0110" =>
+          r_Hex_Encoding <= "0100000";
+        when "0111" =>
+          r_Hex_Encoding <= "0001111";
+        when "1000" =>
+          r_Hex_Encoding <= "0000000";
+        when "1001" =>
+          r_Hex_Encoding <= "0000100";
+        when "1010" =>
+          r_Hex_Encoding <= "0000010";
+        when "1011" =>
+          r_Hex_Encoding <= "1100000";
+        when "1100" =>
+          r_Hex_Encoding <= "0110001";
+        when "1101" =>
+          r_Hex_Encoding <= "1000010";
+        when "1110" =>
+          r_Hex_Encoding <= "0110000";
+        when "1111" =>
+          r_Hex_Encoding <= "0111000";
+      end case;
+    end if;
+  end process;
+ 
+  o_Segment <= r_Hex_Encoding;
+ 
+end architecture RTL;
