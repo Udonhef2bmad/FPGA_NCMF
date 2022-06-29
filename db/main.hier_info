@@ -1,0 +1,5 @@
+|top
+clk => ~NO_FANOUT~
+rst => ~NO_FANOUT~
+
+

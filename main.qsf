@@ -39,10 +39,10 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY TREE_IMPORT_MODULE
+set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "21.1.0 SP0.01STD"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:22:41  MAY 30, 2022"
-set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 SP0.01std Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -714,9 +714,12 @@ set_location_assignment PIN_AA20 -to GPIO_1[34]
 set_location_assignment PIN_AA20 -to GPIO_1_34
 set_location_assignment PIN_AC22 -to GPIO_1[35]
 set_location_assignment PIN_AC22 -to GPIO_1_35
-set_global_assignment -name VHDL_FILE src/MANHATTAN/MANHATTAN.vhd
-set_global_assignment -name VHDL_FILE src/COMPARATOR/COMPARATOR.vhd
-set_global_assignment -name VHDL_FILE src/TREE_IMPORT_MODULE/TREE_IMPORT_MODULE.vhd
+set_global_assignment -name VHDL_FILE src/bin_to_seg.vhd
+set_global_assignment -name VHDL_FILE src/comparator.vhd
+set_global_assignment -name VHDL_FILE src/manhattan.vhd
+set_global_assignment -name VHDL_FILE src/node_loader.vhd
+set_global_assignment -name VHDL_FILE src/top.vhd
+set_global_assignment -name VHDL_FILE src/tree_import_module.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
